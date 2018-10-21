@@ -26,8 +26,10 @@ Common Spring Dependencies:
 * spring-context-support    - Integration mit Guava, FreeMarker etc.
 * spring-expressions        - Spring Expression Language (SpEL)
 
-Dependency Injection Variants
------------------------------
+Dependency Injection in XML
+---------------------------
+
+Mixing the Constructor and Beans Injection is possible.
 
 * Constructor Injection
     ```
@@ -35,7 +37,21 @@ Dependency Injection Variants
         <constructor-arg ref/value=... index=...]>
     </bean>
     
-    <bean id=... c:foo-ref= c:bar=true>     // shortcuts for "constructor-arg"
-    <bean id=... c:_0=... c:_1-ref=...>     // shortcuts with position numbers
+    <bean id=... c:foo-ref=... c:bar=...>    // shortcuts for "constructor-arg"
+    <bean id=... c:_0=... c:_1-ref=...>      // shortcuts with position numbers
+    ```
+
+* Beans Injection
+    ```
+    <bean id=...>
+       <property name="foo" value=.../>
+    </bean>
+
+    <bean id=... p:foo-ref=... p:bar=...>     // shortcuts for "property"
+    ```
+
+* Properties laden
+    ```
+    <context:property-placeholder location="db/datasource.properties"/>
     ```
 

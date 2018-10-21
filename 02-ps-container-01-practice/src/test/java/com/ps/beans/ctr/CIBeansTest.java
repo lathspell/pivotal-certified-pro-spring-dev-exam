@@ -1,5 +1,6 @@
 package com.ps.beans.ctr;
 
+import com.ps.beans.ComplexBean;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -26,5 +27,10 @@ public class CIBeansTest {
         }
 
         //TODO 3. Retrieve beans of types ComplexBean and make sure their dependencies were correctly set.
+        ComplexBeanImpl cmplx0 = ctx.getBean("complexBean0", ComplexBeanImpl.class);
+        assertNotNull(cmplx0.getSimpleBean());
+        ComplexBeanImpl cmplx1 = ctx.getBean("complexBean1", ComplexBeanImpl.class);
+        assertNotNull(cmplx1.getSimpleBean());
+
     }
 }
