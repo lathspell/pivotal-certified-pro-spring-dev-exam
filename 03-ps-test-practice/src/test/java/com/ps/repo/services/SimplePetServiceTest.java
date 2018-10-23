@@ -1,5 +1,6 @@
 package com.ps.repo.services;
 
+import com.ps.base.PetType;
 import com.ps.base.UserType;
 import com.ps.ents.Pet;
 import com.ps.ents.User;
@@ -56,7 +57,7 @@ public class SimplePetServiceTest {
         Pet pet = simplePetService.findById(PET_ID);
         assertNull(pet);
     }
-    @Test
+    @Test(expected = NotFoundException.class)
     public void deleteByIdNegative() {
         //TODO 14. Analyse the stub implementation and add a test for  simplePetService.deleteById(99L)
         simplePetService.deleteById(99L);
@@ -66,6 +67,7 @@ public class SimplePetServiceTest {
     @Test
     public void findByOwnerPositive() {
         //TODO 15. Analyse the stub implementation and add a test for simplePetService.findAllByOwner(owner)
+        simplePetService.findAllByOwner(owner);
     }
 
     //negative test, we know that pets for this owner do not exist
